@@ -1,33 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friendly Weather App</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
-<body>
-<header>
-    <h1>Friendly Weather App</h1>
-</header>
-<main>
-    <div class="wrapper">
-        <section class="current-weather">
-            <article>
-    
-            </article>
-        </section>
-        <section class="five-day-forecast">
-            <article>
-    
-            </article>
-        </section>
-    </div>
-</main>
-<footer>
 
-</footer>
+<body>
+    <header>
+        <h1>Friendly Weather App</h1>
+    </header>
+    <main>
+        <div class="wrapper">
+            <section class="current-weather">
+                <article>
+                    <h2 class="weather-title">Current Weather - Toronto</h2>
+                    <div class="weather-container">
+                        <div class="weather-stats">
+                            <div class="real-temp">
+                                <p>Current Temperature</p>
+                                <p>24°C</p>
+                            </div>
+                            <div class="feels-like">
+                                <p>Feels Like</p>
+                                <p>10°C</p>
+                            </div>
+                            <div class="high-low">
+                                <p>Daily High/Low</p>
+                                <p>28°C / 9°C</p>
+                            </div>
+
+                        <div class="icon">
+                            <i></i>
+                            <p>Description</p>
+                        </div>
+
+                        </div>
+                        <div class="other-stats">
+                            <p>Date: Feb 20 '21</p>
+                            <p>Time: 3:30pm</p>
+                            <p>Wind: 23</p>
+                            <p>Humidity: 23</p>
+                            <p>Snow: 23</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="five-day-forecast">
+                <article>
+                    <h2>5 Day Forecast</h2>
+                    <div class="forecast-container">
+
+                        <article class="forecast day-1">
+                            <h4>Month DD 'YY</h4>
+                            <i></i><span></span>
+                            <p>Daily High/Low</p>
+                            <p>24°C/5°C</p>
+                        </article>
+                        <article class="forecast day-2">
+                            <h4>Month DD 'YY</h4>
+                            <i></i><span></span>
+                            <p>Daily High/Low</p>
+                            <p>24°C/5°C</p>
+                        </article>
+                        <article class="forecast day-3">
+                            <h4>Month DD 'YY</h4>
+                            <i></i><span></span>
+                            <p>Daily High/Low</p>
+                            <p>24°C/5°C</p>
+                        </article>
+                        <article class="forecast day-4">
+                            <h4>Month DD 'YY</h4>
+                            <i></i><span></span>
+                            <p>Daily High/Low</p>
+                            <p>24°C/5°C</p>
+                        </article>
+                        <article class="forecast day-5">
+                            <h4>Month DD 'YY</h4>
+                            <i></i><span></span>
+                            <p>Daily High/Low</p>
+                            <p>24°C/5°C</p>
+                        </article>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
 
     <script src="./script.js"></script>
 </body>
+
 </html>

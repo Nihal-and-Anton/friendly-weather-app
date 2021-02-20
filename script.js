@@ -7,6 +7,7 @@ const weatherApp = {};
 weatherApp.getVariables = () => {
     weatherApp.geoUrl = "https://freegeoip.app/json/";
     weatherApp.weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
+    weatherApp.onecallUrl = "https://api.openweathermap.org/data/2.5/onecall";
     weatherApp.apiKey = "f5daff7dc1836c7459dbcc4ca6644537";
     weatherApp.iconUrl = "http://openweathermap.org/img/wn/10d@2x.png"
     //http://openweathermap.org/img/wn/10d@2x.png
