@@ -18,34 +18,33 @@
         <div class="wrapper">
             <section class="current-weather">
                 <article>
-                    <h2 class="weather-title">Current Weather - Toronto</h2>
+                    <h2 class="weather-title"></h2>
                     <div class="weather-container">
                         <div class="weather-stats">
                             <div class="real-temp">
-                                <p>Current Temperature</p>
-                                <p>24°C</p>
+                                <p>Temperature</p>
+                                <p id="real-temp"></p>
                             </div>
                             <div class="feels-like">
                                 <p>Feels Like</p>
-                                <p>10°C</p>
+                                <p id="feels-like"></p>
                             </div>
                             <div class="high-low">
                                 <p>Daily High/Low</p>
                                 <p id="current-daily-temperature">28°C / 9°C</p>
                             </div>
+                        </div>
 
-                        <div class="icon">
+                        <div class="description">
+                            <p id="description"></p>
                             <i></i>
-                            <p>Description</p>
                         </div>
 
-                        </div>
                         <div class="other-stats">
                             <p id="current-date"></p>
                             <p id="current-time"></p>
-                            <p>Wind: 23</p>
-                            <p>Humidity: 23</p>
-                            <p>Snow: 23</p>
+                            <p id="wind-speed"></p>
+                            <p id="humidity"></p>
                         </div>
                     </div>
                 </article>

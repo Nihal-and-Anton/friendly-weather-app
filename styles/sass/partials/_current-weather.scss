@@ -8,4 +8,26 @@
 .weather-container {
     display: flex;
     justify-content: space-between;
+    padding: 0 5%;
+    
+    .weather-stats {
+        width: 30%;
+        * {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    
+    .other-stats {
+        width: 30%;
+        text-align: right;
+    }
+
+    .description {
+        background-color: rgba(47, 79, 79, 0.25);
+        padding: 0 5%;
+        p {
+            text-transform: capitalize;
+        }
+    }
 }
