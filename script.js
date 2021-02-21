@@ -9,7 +9,7 @@ weatherApp.getVariables = () => {
     weatherApp.weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
     weatherApp.onecallUrl = "https://api.openweathermap.org/data/2.5/onecall";
     weatherApp.apiKey = "f5daff7dc1836c7459dbcc4ca6644537";
-    weatherApp.iconUrl = "http://openweathermap.org/img/wn/"
+    weatherApp.iconUrl = "https://openweathermap.org/img/wn/"
     //http://openweathermap.org/img/wn/10d@2x.png
     // second API key 'b14a81d4d1d1f082145ed553c87d056f'
 };
