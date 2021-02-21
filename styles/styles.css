@@ -258,7 +258,8 @@ body {
   background-color: rgba(255, 255, 255, 0.35);
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
 }
 
@@ -300,6 +301,7 @@ h1 {
 .weather-container .description {
   background-color: rgba(47, 79, 79, 0.25);
   padding: 0 5%;
+  text-align: center;
 }
 
 .weather-container .description p {
@@ -312,4 +314,8 @@ h1 {
   -ms-grid-columns: (1fr)[5];
       grid-template-columns: repeat(5, 1fr);
   gap: 15px;
+}
+
+.forecast-container .forecast {
+  text-align: center;
 }
