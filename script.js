@@ -38,7 +38,6 @@ weatherApp.getWeather = userCoordinates => {
     fetch(url)
         .then(response => response.json())
         .then(jsonResponse => {
-            console.log(jsonResponse);
             weatherApp.displayWeather(jsonResponse);
         });
 };
@@ -57,7 +56,8 @@ weatherApp.displayWeather = weatherObject => {
         .textContent = `${weatherObject.weather[0].description}`;
 
     const weatherIcon = document.createElement('img');
-    weatherIcon.src = `${weatherApp.iconUrl}${weatherObject.weather[0].icon}@2x.png`
+    weatherIcon.src = `${weatherApp.iconUrl}${weatherObject.weather[0].icon}@2x.png`;
+    weatherIcon.alt = `${weatherObject.weather[0].description}`;
     document.querySelector('.description').appendChild(weatherIcon);
 
     document.getElementById('wind-speed')
@@ -105,6 +105,11 @@ weatherApp.showForecast = forecastData => {
         const forecastHighTemperature = Math.round(forecastData.daily[i+1].temp.max - 273.15);
         const forecastLowTemperature = Math.round(forecastData.daily[i+1].temp.min - 273.15);
         forecastTemperatureElement[i].textContent = `${forecastHighTemperature}°C / ${forecastLowTemperature}°C`;
+        const forecastIcon = document.createElement('img');
+        forecastIcon.src = `${weatherApp.iconUrl}${forecastData.daily[i + 1].weather[0].icon}.png`;
+        const iconElement = document.querySelectorAll('.forecast i');
+        iconElement[i].append(forecastIcon);
+
     }
 }
 
