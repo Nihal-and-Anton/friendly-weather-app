@@ -107,6 +107,7 @@ weatherApp.showForecast = forecastData => {
         forecastTemperatureElement[i].textContent = `${forecastHighTemperature}°C / ${forecastLowTemperature}°C`;
         const forecastIcon = document.createElement('img');
         forecastIcon.src = `${weatherApp.iconUrl}${forecastData.daily[i + 1].weather[0].icon}.png`;
+        forecastIcon.alt = `${forecastData.daily[i + 1].weather[0].description}`;
         const iconElement = document.querySelectorAll('.forecast i');
         iconElement[i].append(forecastIcon);
 
