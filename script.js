@@ -61,10 +61,10 @@ weatherApp.displayWeather = weatherObject => {
     document.querySelector('.description').appendChild(weatherIcon);
 
     document.getElementById('wind-speed')
-        .textContent = `Wind Speed: ${(weatherObject.wind.speed * 3.6).toFixed(1)} km/hr`
+        .textContent = `${(weatherObject.wind.speed * 3.6).toFixed(1)} km/hr`
 
     document.getElementById('humidity')
-        .textContent = `Humidity: ${weatherObject.main.humidity}%`
+        .textContent = `${weatherObject.main.humidity}%`
 
 };
 
@@ -86,10 +86,10 @@ weatherApp.showForecast = forecastData => {
     console.log(forecastData)
     
     const currentDateElement = document.querySelector('#current-date');
-    currentDateElement.textContent = `Date: ${currentDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: '2-digit'})}`;
+    currentDateElement.textContent = `${currentDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: '2-digit'})}`;
 
     const currentTimeElement = document.querySelector('#current-time');
-    currentTimeElement.textContent = `Time: ${currentDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
+    currentTimeElement.textContent = `${currentDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
 
     const dailyTemperatureElement = document.querySelector('#current-daily-temperature');
     const dailyHighTemperature = Math.round(forecastData.daily[0].temp.max - 273.15);

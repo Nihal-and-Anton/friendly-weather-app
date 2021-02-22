@@ -10,16 +10,17 @@
     justify-content: space-between;
     padding: 0 5%;
     
-    .weather-stats {
+    .weather-stats,
+    .other-stats {
         width: 30%;
-        * {
+        
+        div {
             display: flex;
             justify-content: space-between;
         }
     }
     
     .other-stats {
-        width: 30%;
         text-align: right;
     }
 

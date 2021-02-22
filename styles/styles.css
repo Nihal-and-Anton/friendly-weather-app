@@ -280,11 +280,13 @@ h2 {
   padding: 0 5%;
 }
 
-.weather-container .weather-stats {
+.weather-container .weather-stats,
+.weather-container .other-stats {
   width: 30%;
 }
 
-.weather-container .weather-stats * {
+.weather-container .weather-stats div,
+.weather-container .other-stats div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -294,7 +296,6 @@ h2 {
 }
 
 .weather-container .other-stats {
-  width: 30%;
   text-align: right;
 }
 
