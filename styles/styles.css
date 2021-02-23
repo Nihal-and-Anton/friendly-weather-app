@@ -244,8 +244,15 @@ template {
   overflow: hidden;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background-color: lightblue;
+  background: url("../assets/valery-rabchenyuk-ZBCmejy5OrQ-unsplash.jpg") center/cover no-repeat;
+  font-size: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 
 .wrapper {
@@ -258,9 +265,18 @@ body {
   background-color: rgba(255, 255, 255, 0.35);
 }
 
+h1 {
+  font-family: 'Merriweather', serif;
+  color: white;
+}
+
 h1,
 h2 {
   text-align: center;
+}
+
+h4 {
+  font-weight: 400;
 }
 
 .weather-container,
@@ -300,13 +316,16 @@ h2 {
 }
 
 .weather-container .description {
-  background-color: rgba(47, 79, 79, 0.25);
   padding: 0 5%;
   text-align: center;
 }
 
 .weather-container .description p {
   text-transform: capitalize;
+}
+
+.weather-container .description i {
+  font-size: 7rem;
 }
 
 .forecast-container {
@@ -321,6 +340,10 @@ h2 {
   text-align: center;
 }
 
-.forecast-container .forecast img {
-  background-color: rgba(47, 79, 79, 0.25);
+.forecast-container .forecast i {
+  font-size: 4rem;
+}
+
+.forecast-container .forecast .wi-celsius {
+  font-size: 2rem;
 }

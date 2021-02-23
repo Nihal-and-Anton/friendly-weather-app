@@ -39,6 +39,7 @@ weatherApp.getWeather = userCoordinates => {
         .then(response => response.json())
         .then(jsonResponse => {
             weatherApp.displayWeather(jsonResponse);
+            console.log(jsonResponse)
         });
 };
 
@@ -55,8 +56,8 @@ weatherApp.displayWeather = weatherObject => {
     document.getElementById('description')
         .textContent = `${weatherObject.weather[0].description}`;
 
-    const weatherIcon = document.createElement('img');
-    weatherIcon.src = `${weatherApp.iconUrl}${weatherObject.weather[0].icon}@2x.png`;
+    const weatherIcon = document.createElement('i');
+    weatherIcon.classList.add('wi',`wi-owm-${weatherObject.weather[0].id}`);
     weatherIcon.alt = `${weatherObject.weather[0].description}`;
     document.querySelector('.description').appendChild(weatherIcon);
 
@@ -98,16 +99,16 @@ weatherApp.showForecast = forecastData => {
     dailyTemperatureElement.textContent = `${dailyHighTemperature}°C / ${dailyLowTemperature}°C`;
 
     const daysOfForecast = document.querySelectorAll('.forecast');
+
     for (let i = 0; i < daysOfForecast.length; i++) {
         const forecastHeadings = document.querySelectorAll('h4');
         forecastHeadings[i].textContent = new Date(forecastData.daily[i + 1].dt * 1000).toLocaleString('en-US', { weekday: 'short', month: 'short', day: '2-digit' });
         const forecastTemperatureElement = document.querySelectorAll('.forecast-daily-temperature');
         const forecastHighTemperature = Math.round(forecastData.daily[i+1].temp.max - 273.15);
         const forecastLowTemperature = Math.round(forecastData.daily[i+1].temp.min - 273.15);
-        forecastTemperatureElement[i].textContent = `${forecastHighTemperature}°C / ${forecastLowTemperature}°C`;
-        const forecastIcon = document.createElement('img');
-        forecastIcon.src = `${weatherApp.iconUrl}${forecastData.daily[i + 1].weather[0].icon}.png`;
-        forecastIcon.alt = `${forecastData.daily[i + 1].weather[0].description}`;
+        forecastTemperatureElement[i].innerHTML= `${forecastHighTemperature}°C / ${forecastLowTemperature}°C`;
+        const forecastIcon = document.createElement('i');
+        forecastIcon.classList.add('wi',`wi-owm-${ forecastData.daily[i + 1].weather[0].id}`);
         forecastHeadings[i].insertAdjacentElement('afterend' , forecastIcon);
     }
 }
