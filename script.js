@@ -24,7 +24,8 @@ weatherApp.getLocation = () => {
             };
             weatherApp.getWeather(coordinates);
             weatherApp.getForecast(coordinates);
-        });
+        })
+        .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
 weatherApp.getWeather = userCoordinates => {
@@ -40,7 +41,8 @@ weatherApp.getWeather = userCoordinates => {
         .then(jsonResponse => {
             weatherApp.displayWeather(jsonResponse);
             console.log(jsonResponse)
-        });
+        })
+        .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
 weatherApp.displayWeather = weatherObject => {
@@ -79,7 +81,8 @@ weatherApp.getForecast = userCoordinates => {
 
     fetch(url)
         .then(response => response.json())
-        .then(jsonResponse => weatherApp.showForecast(jsonResponse));
+        .then(jsonResponse => weatherApp.showForecast(jsonResponse))
+        .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 }
 
 weatherApp.showForecast = forecastData => {
