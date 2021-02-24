@@ -5,7 +5,7 @@ html {
 body {
     background: url('../assets/valery-rabchenyuk-ZBCmejy5OrQ-unsplash.jpg') center / cover no-repeat;
     
-    font-size: 2rem;
+    font-size: calc(1.6rem + 0.3vw);
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
@@ -23,12 +23,21 @@ body {
 
 h1 {
     font-family: 'Merriweather', serif;
+    font-size: calc(2.6rem + 1vw);
     color: white;
 }
 
 h1,
 h2 {
     text-align: center;
+}
+
+h2 {
+    font-size: calc(2.5rem + 0.5vw);
+}
+
+h3 {
+    font-size: calc(1.9rem + 0.5vw);
 }
 
 h4 {
