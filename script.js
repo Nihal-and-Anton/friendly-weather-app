@@ -27,6 +27,21 @@ weatherApp.getLocation = () => {
         });
 };
 
+weatherApp.checkUnit = () => {
+    let checked = document.querySelector('input:checked');
+    console.log(checked.value)
+    
+    const selector = document.querySelector('form');
+    selector.addEventListener('change', () => {
+        checked = document.querySelector('input:checked');
+        console.log(checked.value)
+    })
+    
+    // let unit = checked.value;
+}
+
+weatherApp.checkUnit();
+
 weatherApp.getWeather = userCoordinates => {
     const url = new URL(weatherApp.weatherUrl);
     url.search = new URLSearchParams({
