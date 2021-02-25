@@ -66,10 +66,10 @@ weatherApp.displayWeather = weatherObject => {
         .textContent = `Current weather in ${weatherObject.name}`;
 
     document.getElementById('real-temp')
-        .textContent = `${(weatherObject.main.temp).toFixed()}°`;
+        .textContent = `${Math.round(weatherObject.main.temp)}°`;
 
     document.getElementById('feels-like')
-        .textContent = `${(weatherObject.main.feels_like).toFixed()}°`;
+        .textContent = `${Math.round(weatherObject.main.feels_like)}°`;
 
     document.getElementById('description')
         .textContent = `${weatherObject.weather[0].description}`;
@@ -79,11 +79,13 @@ weatherApp.displayWeather = weatherObject => {
     weatherIcon.alt = `${weatherObject.weather[0].description}`;
     document.querySelector('.description').appendChild(weatherIcon);
 
+    
+    const windSpeed = document.getElementById('wind-speed');
+    windSpeed.textContent = ` ${(weatherObject.wind.speed * 3.6).toFixed(1)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
+
     const windIcon = document.createElement('i');
     windIcon.classList.add('wi', 'wi-wind', `towards-${weatherObject.wind.deg}-deg`);
-    document.getElementById('wind-speed')
-        .textContent = ` ${(weatherObject.wind.speed * 3.6).toFixed(1)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`
-    document.getElementById('wind-speed').prepend(windIcon);
+    windSpeed.prepend(windIcon);
 
     document.getElementById('humidity')
         .textContent = `${weatherObject.main.humidity}%`
