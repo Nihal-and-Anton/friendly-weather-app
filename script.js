@@ -54,9 +54,15 @@ weatherApp.getWeather = userCoordinates => {
         .then(response => response.json())
         .then(jsonResponse => {
             weatherApp.displayWeather(jsonResponse);
-            console.log(jsonResponse)
+            weatherApp.setBackground(jsonResponse.weather);
         });
 };
+
+weatherApp.setBackground = weatherArray => {
+    const bg = weatherArray[0].icon;
+    const body = document.querySelector('body');
+    body.style.backgroundImage = `url("./assets/backgrounds/${bg}.jpg")`
+}
 
 weatherApp.displayWeather = weatherObject => {
     const allIcons = document.querySelectorAll('i:not(h1 i, form i)');
@@ -81,7 +87,8 @@ weatherApp.displayWeather = weatherObject => {
 
     
     const windSpeed = document.getElementById('wind-speed');
-    windSpeed.textContent = ` ${(weatherObject.wind.speed * 3.6).toFixed(1)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
+    const windMultiplier = (weatherApp.unit === 'metric' ? 3.6 : 1);
+    windSpeed.textContent = ` ${(weatherObject.wind.speed * windMultiplier).toFixed(1)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
 
     const windIcon = document.createElement('i');
     windIcon.classList.add('wi', 'wi-wind', `towards-${weatherObject.wind.deg}-deg`);

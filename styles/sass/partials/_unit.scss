@@ -1,10 +1,10 @@
 .unit-select {
     display: inline-block;
-    color: rgb(165, 165, 165);
+    color: rgb(185, 185, 185);
     font-size: 3rem;
     border: 1px solid white;
     border-radius: 10px;
-    background-color: rgba(82, 82, 82, 0.438);
+    background-color: rgba(255, 255, 255, 0.904);
     padding: 0 10px;
 
     i {
@@ -16,7 +16,7 @@
         display: none;
 
         &:checked+label {
-            color: rgb(255, 255, 255);
+            color: black;
         }
     }
 }
