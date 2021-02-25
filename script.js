@@ -106,7 +106,7 @@ weatherApp.showForecast = forecastData => {
         const forecastTemperatureElement = document.querySelectorAll('.forecast-daily-temperature');
         const forecastHighTemperature = Math.round(forecastData.daily[i+1].temp.max - 273.15);
         const forecastLowTemperature = Math.round(forecastData.daily[i+1].temp.min - 273.15);
-        forecastTemperatureElement[i].innerHTML= `${forecastHighTemperature}°C / ${forecastLowTemperature}°C`;
+        forecastTemperatureElement[i].textContent= `${forecastHighTemperature}°C / ${forecastLowTemperature}°C`;
         const forecastIcon = document.createElement('i');
         forecastIcon.classList.add('wi',`wi-owm-${ forecastData.daily[i + 1].weather[0].id}`);
         forecastHeadings[i].insertAdjacentElement('afterend' , forecastIcon);

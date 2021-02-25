@@ -1,0 +1,25 @@
+.unit-select {
+    display: inline-block;
+    color: rgb(165, 165, 165);
+    font-size: 3rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgba(82, 82, 82, 0.438);
+    padding: 0 10px;
+
+    i {
+        cursor: pointer;
+        padding: 0 5px;
+    }
+
+
+
+    input[type=radio] {
+        display: none;
+
+        &:checked+label {
+            color: rgb(255, 255, 255);
+        }
+    }
+    
+}

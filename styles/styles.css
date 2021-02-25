@@ -347,3 +347,26 @@ h4 {
 .forecast-container .forecast .wi-celsius {
   font-size: 2rem;
 }
+
+.unit-select {
+  display: inline-block;
+  color: #a5a5a5;
+  font-size: 3rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: rgba(82, 82, 82, 0.438);
+  padding: 0 10px;
+}
+
+.unit-select i {
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.unit-select input[type=radio] {
+  display: none;
+}
+
+.unit-select input[type=radio]:checked + label {
+  color: white;
+}

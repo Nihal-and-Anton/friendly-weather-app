@@ -17,10 +17,25 @@
 <body>
     <header>
         <h1><i class="wi wi-day-cloudy"></i> Friendly Weather App</h1>
+        
     </header>
     <main>
         <div class="wrapper">
             <section class="current-weather">
+                <div class="unit-select">
+                    <form>
+                        <input type="radio" name="unit" value="celsius" id="celsius" checked>
+                        <label for="celsius">
+                            <span class="sr-only">celsius</span>
+                            <i class="wi wi-celsius"></i>
+                        </label>
+                        <input type="radio" name="unit" value="fahrenheit" id="fahrenheit">
+                        <label for="fahrenheit">
+                            <span class="sr-only">fahrenheit</span>
+                            <i class="wi wi-fahrenheit"></i>
+                        </label>
+                    </form>
+                </div>
                 <article>
                     <h2 class="weather-title"></h2>
                     <div class="weather-container">
