@@ -67,36 +67,38 @@ weatherApp.setBackground = weatherArray => {
 weatherApp.displayWeather = weatherObject => {
     const allIcons = document.querySelectorAll('i:not(h1 i, form i)');
     allIcons.forEach(icon => icon.remove());
-
+    
     document.querySelector('.weather-title')
-        .textContent = `Current weather in ${weatherObject.name}`;
-
+    .textContent = `Current weather in ${weatherObject.name}`;
+    
     document.getElementById('real-temp')
-        .textContent = `${Math.round(weatherObject.main.temp)}°`;
-
+    .textContent = `${Math.round(weatherObject.main.temp)}°`;
+    
     document.getElementById('feels-like')
-        .textContent = `${Math.round(weatherObject.main.feels_like)}°`;
-
+    .textContent = `${Math.round(weatherObject.main.feels_like)}°`;
+    
     document.getElementById('description')
-        .textContent = `${weatherObject.weather[0].description}`;
-
+    .textContent = `${weatherObject.weather[0].description}`;
+    
     const weatherIcon = document.createElement('i');
     weatherIcon.classList.add('wi', `wi-owm-${weatherObject.weather[0].id}`);
-    weatherIcon.alt = `${weatherObject.weather[0].description}`;
     document.querySelector('.description').appendChild(weatherIcon);
-
+    
+    
     
     const windSpeed = document.getElementById('wind-speed');
     const windMultiplier = (weatherApp.unit === 'metric' ? 3.6 : 1);
     windSpeed.textContent = ` ${(weatherObject.wind.speed * windMultiplier).toFixed(1)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
-
+    
     const windIcon = document.createElement('i');
     windIcon.classList.add('wi', 'wi-wind', `towards-${weatherObject.wind.deg}-deg`);
     windSpeed.prepend(windIcon);
-
+    
     document.getElementById('humidity')
-        .textContent = `${weatherObject.main.humidity}%`
-
+    .textContent = `${weatherObject.main.humidity}%`
+    
+    
+    
 };
 
 weatherApp.getForecast = userCoordinates => {
@@ -145,7 +147,24 @@ weatherApp.showForecast = forecastData => {
         const forecastIcon = document.createElement('i');
         forecastIcon.classList.add('wi', `wi-owm-${ forecastData.daily[i + 1].weather[0].id}`);
         forecastHeadings[i].insertAdjacentElement('afterend', forecastIcon);
+        
+        
+        document.querySelectorAll('.forecast-description').forEach(description => {
+            description.remove();
+        });
+        const forecastDescription = document.createElement('p');
+        forecastDescription.textContent = forecastData.daily[i + 1].weather[0].description;
+        forecastDescription.classList.add('sr-only', 'forecast-description');
+        // forecastDescription.style.textTransform = 'capitalize';
+        forecastIcon.insertAdjacentElement('afterend', forecastDescription);
     }
+
+    weatherApp.makeIconsAriaHidden();
+}
+
+weatherApp.makeIconsAriaHidden = () => {
+    const icons = document.querySelectorAll('i');
+    icons.forEach(icon => icon.setAttribute('aria-hidden', true));
 }
 
 weatherApp.init = () => {
