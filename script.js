@@ -64,7 +64,7 @@ weatherApp.displayWeather = weatherObject => {
     document.querySelector('.description').appendChild(weatherIcon);
 
     document.getElementById('wind-speed')
-        .textContent = `${(weatherObject.wind.speed * 3.6).toFixed(1)} km/hr`
+        .textContent = `${(weatherObject.wind.speed * 3.6).toFixed()} km/hr`
 
     document.getElementById('humidity')
         .textContent = `${weatherObject.main.humidity}%`

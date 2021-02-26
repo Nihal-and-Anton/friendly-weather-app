@@ -8,11 +8,12 @@
 .weather-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 5%;
+    padding: 0 1.5%;
     
     .weather-stats,
     .other-stats {
         width: 30%;
+        flex-grow: 1;
         
         div {
             display: flex;
@@ -35,7 +36,8 @@
        }
     }
 
-    .description {   
+    .description {
+        margin: 0 30px;   
         text-align: center;
         p {
             text-transform: capitalize;
@@ -47,9 +49,6 @@
 }
 
 .forecast-container {
-    // display: grid;
-    // grid-template-columns: repeat(5, 1fr);
-    // gap: 15px;
     display: flex;
     justify-content: space-between;
 
@@ -64,3 +63,7 @@
         }
     }
 }
+
+.stat {
+        font-weight: 600;
+    }
