@@ -288,6 +288,18 @@ h4 {
   font-weight: 400;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-style: italic;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
 .weather-container,
 .forecast {
   background-color: rgba(255, 255, 255, 0.5);
@@ -381,6 +393,11 @@ h4 {
 
 .stat {
   font-weight: 600;
+}
+
+footer {
+  margin-top: 10px;
+  text-align: center;
 }
 
 @media (min-width: 1700px) {
