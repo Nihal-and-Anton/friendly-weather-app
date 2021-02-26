@@ -133,6 +133,10 @@ weatherApp.showForecast = forecastData => {
 
     const daysOfForecast = document.querySelectorAll('.forecast');
 
+    document.querySelectorAll('.forecast-description').forEach(description => {
+        description.remove();
+    });
+
     for (let i = 0; i < daysOfForecast.length; i++) {
         const forecastHeadings = document.querySelectorAll('h4');
         forecastHeadings[i].textContent = new Date(forecastData.daily[i + 1].dt * 1000).toLocaleString('en-US', {
@@ -149,13 +153,10 @@ weatherApp.showForecast = forecastData => {
         forecastHeadings[i].insertAdjacentElement('afterend', forecastIcon);
         
         
-        document.querySelectorAll('.forecast-description').forEach(description => {
-            description.remove();
-        });
-        const forecastDescription = document.createElement('p');
+        
+        const forecastDescription = document.createElement('span');
         forecastDescription.textContent = forecastData.daily[i + 1].weather[0].description;
         forecastDescription.classList.add('sr-only', 'forecast-description');
-        // forecastDescription.style.textTransform = 'capitalize';
         forecastIcon.insertAdjacentElement('afterend', forecastDescription);
     }
 
