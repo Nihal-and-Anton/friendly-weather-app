@@ -1,5 +1,6 @@
 const weatherApp = {};
 
+// define all global variables and store within method
 weatherApp.getVariables = () => {
     weatherApp.geoUrl = "https://freegeoip.app/json/";
     weatherApp.weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
@@ -8,6 +9,7 @@ weatherApp.getVariables = () => {
     // second API key 'b14a81d4d1d1f082145ed553c87d056f'
 };
 
+// get user geolocation based on their IP address
 weatherApp.getLocation = () => {
     fetch(weatherApp.geoUrl)
         .then(response => response.json())
@@ -22,6 +24,7 @@ weatherApp.getLocation = () => {
         .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
+// check user's preferred temperature unit
 weatherApp.checkUnit = () => {
     let checked = document.querySelector('input:checked');
     weatherApp.unit = checked.value;
@@ -33,6 +36,7 @@ weatherApp.checkUnit = () => {
     })
 };
 
+// use coordinates received from geolocation to get weather information
 weatherApp.getWeather = userCoordinates => {
     const url = new URL(weatherApp.weatherUrl);
     url.search = new URLSearchParams({
@@ -51,13 +55,16 @@ weatherApp.getWeather = userCoordinates => {
         .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
+// set background image dynamically based on current weather conditions at user's location
 weatherApp.setBackground = weatherArray => {
     const bg = weatherArray[0].icon;
     const body = document.querySelector('body');
     body.style.backgroundImage = `url("./assets/backgrounds/${bg}.jpg")`;
 };
 
+// display weather information received from getWeather method
 weatherApp.displayWeather = weatherObject => {
+    // clear any icons on page if method is called again (after unit selection changed) 
     const allIcons = document.querySelectorAll('i:not(h1 i, form i)');
     allIcons.forEach(icon => icon.remove());
     
@@ -88,6 +95,7 @@ weatherApp.displayWeather = weatherObject => {
     .textContent = `${weatherObject.main.humidity}%`;
 };
 
+// use coordinates received from geolocation to get 5-day forecast information
 weatherApp.getForecast = userCoordinates => {
     const url = new URL(weatherApp.onecallUrl);
     url.search = new URLSearchParams({
@@ -103,6 +111,7 @@ weatherApp.getForecast = userCoordinates => {
         .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
+// display 5-day forecast received from getForecast method
 weatherApp.showForecast = forecastData => {
     const currentDate = new Date(forecastData.current.dt * 1000);
 
@@ -149,15 +158,18 @@ weatherApp.showForecast = forecastData => {
     weatherApp.makeIconsAriaHidden();
 };
 
+// find all icons on page and set them to 'aria-hidden: true'
 weatherApp.makeIconsAriaHidden = () => {
     const icons = document.querySelectorAll('i');
     icons.forEach(icon => icon.setAttribute('aria-hidden', true));
 };
 
+// define method to initialize app
 weatherApp.init = () => {
     weatherApp.getVariables();
     weatherApp.checkUnit();
     weatherApp.getLocation();
 };
 
+// call initialization method
 weatherApp.init();
