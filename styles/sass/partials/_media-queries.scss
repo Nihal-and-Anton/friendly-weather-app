@@ -1,0 +1,131 @@
+@media (min-width: 1700px) {
+    body {
+        font-size: 2.1rem;
+    }
+
+    .wrapper {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 4.3rem;
+    }
+
+    h2 {
+        font-size: 3.4rem;
+    }
+
+    h3 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 930px) {
+    h3 {
+        text-align: center;
+    }
+    
+    .forecast-container {
+        flex-wrap: wrap;
+        .forecast {
+            width: calc(50% - (15px / 2));
+        }
+
+        .forecast:nth-child(3),
+        .forecast:nth-child(4),
+        .forecast:last-child {
+            width: calc(100% / 3 - (30px / 3));
+            margin-top: 15px;
+        }
+    }
+}
+
+@media (max-width: 810px) {
+    .weather-container {
+        flex-direction: column-reverse;
+
+        .weather-stats {
+            width: 100%;
+            flex-direction: row;
+            
+            div {
+                flex-direction: column;
+                flex-basis: auto;
+                flex-grow: 1;
+
+                p {
+                    text-align: center;
+                }
+            }
+        }
+
+        .description {
+            margin: 0;
+
+            p {
+                margin: 5px 0;
+            }
+        }
+
+        .other-stats {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                flex-direction: column;
+                flex-basis: auto;
+                flex-grow: 1;
+
+                p:first-child,
+                p:last-child {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .forecast-container {
+        .forecast:nth-child(3),
+        .forecast:nth-child(4) {
+            width: calc(50% - (15px / 2));
+        }
+
+        .forecast:last-child {
+            width: calc(50% - 7.5px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .weather-container {
+        padding: 5%;
+
+        .weather-stats,
+        .other-stats  {
+            flex-direction: column;
+
+            div {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            p {
+                margin: 5px 0;
+            }
+        }
+    }
+
+    .five-day-forecast {
+        .forecast-container {
+            article.forecast {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    }
+}

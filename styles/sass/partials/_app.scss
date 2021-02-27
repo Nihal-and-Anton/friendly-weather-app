@@ -1,31 +1,43 @@
 .weather-container,
 .forecast {
     background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid white;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 20px;
 }
 
 .weather-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 5%;
+    padding: 0 1.5%;
     
     .weather-stats,
     .other-stats {
         width: 30%;
+        flex-grow: 1;
         
         div {
             display: flex;
             justify-content: space-between;
         }
     }
+
+    .weather-stats {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     
     .other-stats {
-        text-align: right;
+       p:first-child {
+           text-align: left;
+       }
+       p:last-child {
+           text-align: right;
+       }
     }
 
     .description {
-        padding: 0 5%;
+        margin: 0 30px;   
         text-align: center;
         p {
             text-transform: capitalize;
@@ -37,11 +49,11 @@
 }
 
 .forecast-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+    display: flex;
+    justify-content: space-between;
 
     .forecast {
+        width: calc(20% - (60px / 5));
         text-align: center;
         i {
             font-size: 4rem;
@@ -50,4 +62,13 @@
             font-size: 2rem;
         }
     }
+}
+
+.stat {
+        font-weight: 600;
+    }
+
+footer {
+    margin-top: 10px;
+    text-align: center;
 }

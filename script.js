@@ -24,7 +24,8 @@ weatherApp.getLocation = () => {
             };
             weatherApp.getWeather(coordinates);
             weatherApp.getForecast(coordinates);
-        });
+        })
+        .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
 weatherApp.checkUnit = () => {
@@ -55,13 +56,15 @@ weatherApp.getWeather = userCoordinates => {
         .then(jsonResponse => {
             weatherApp.displayWeather(jsonResponse);
             weatherApp.setBackground(jsonResponse.weather);
-        });
+            console.log(jsonResponse)
+        })
+        .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
 
 weatherApp.setBackground = weatherArray => {
     const bg = weatherArray[0].icon;
     const body = document.querySelector('body');
-    body.style.backgroundImage = `url("./assets/backgrounds/${bg}.jpg")`
+    body.style.backgroundImage = `url("./assets/backgrounds/03d.jpg")`
 }
 
 weatherApp.displayWeather = weatherObject => {
@@ -69,7 +72,7 @@ weatherApp.displayWeather = weatherObject => {
     allIcons.forEach(icon => icon.remove());
     
     document.querySelector('.weather-title')
-    .textContent = `Current weather in ${weatherObject.name}`;
+    .textContent = `Current Weather in ${weatherObject.name}`;
     
     document.getElementById('real-temp')
     .textContent = `${Math.round(weatherObject.main.temp)}°`;
@@ -88,7 +91,7 @@ weatherApp.displayWeather = weatherObject => {
     
     const windSpeed = document.getElementById('wind-speed');
     const windMultiplier = (weatherApp.unit === 'metric' ? 3.6 : 1);
-    windSpeed.textContent = ` ${(weatherObject.wind.speed * windMultiplier).toFixed(1)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
+    windSpeed.textContent = ` ${Math.round(weatherObject.wind.speed * windMultiplier)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
     
     const windIcon = document.createElement('i');
     windIcon.classList.add('wi', 'wi-wind', `towards-${weatherObject.wind.deg}-deg`);
@@ -112,7 +115,8 @@ weatherApp.getForecast = userCoordinates => {
 
     fetch(url)
         .then(response => response.json())
-        .then(jsonResponse => weatherApp.showForecast(jsonResponse));
+        .then(jsonResponse => weatherApp.showForecast(jsonResponse))
+        .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 }
 
 weatherApp.showForecast = forecastData => {

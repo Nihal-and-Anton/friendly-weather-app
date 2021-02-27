@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css" integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.min.css" integrity="sha512-Ydyj0LLrJGMf7yUSU+QxZE4Pu/jVIutpdTOAozUrzZMslo+vLMX64rghLxEs+AKpN+GmnVNgXoeLlMwSqtyjPw==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
@@ -27,12 +26,12 @@
                     <form>
                         <input type="radio" name="unit" value="metric" id="celsius" checked>
                         <label for="celsius">
-                            <span class="sr-only">celsius</span>
+                            <span class="sr-only">Celsius</span>
                             <i class="wi wi-celsius"></i>
                         </label>
                         <input type="radio" name="unit" value="imperial" id="fahrenheit">
                         <label for="fahrenheit">
-                            <span class="sr-only">fahrenheit</span>
+                            <span class="sr-only">Fahrenheit</span>
                             <i class="wi wi-fahrenheit"></i>
                         </label>
                     </form>
@@ -43,34 +42,34 @@
                         <div class="weather-stats">
                             <div class="real-temp">
                                 <p>Temperature</p>
-                                <p id="real-temp"></p>
+                                <p class="stat" id="real-temp"></p>
                             </div>
                             <div class="feels-like">
                                 <p>Feels Like</p>
-                                <p id="feels-like"></p>
+                                <p class="stat" id="feels-like"></p>
                             </div>
                             <div class="high-low">
                                 <p>High/Low</p>
-                                <p id="current-daily-temperature"></p>
+                                <p class="stat" id="current-daily-temperature"></p>
                             </div>
                         </div>
 
                         <div class="description">
-                            <p id="description"></p>
+                            <p class="stat" id="description"></p>
                         </div>
 
                         <div class="other-stats">
                             <div>
                                 <p id="current-date"></p>
-                                <p id="current-time"></p>
+                                <p class="stat" id="current-time"></p>
                             </div>
                             <div>
                                 <p>Wind Speed</p>
-                                <p id="wind-speed"></p>
+                                <p class="stat" id="wind-speed"></p>
                             </div>
                             <div>
                                 <p>Humidity</p>
-                                <p id="humidity"></p>
+                                <p class="stat" id="humidity"></p>
                             </div>
                         </div>
                     </div>
@@ -78,27 +77,27 @@
             </section>
             <section class="five-day-forecast">
                 <article>
-                    <h3>5 Day Forecast</h3>
+                    <h3>5-Day Forecast</h3>
                     <div class="forecast-container">
                         <article class="forecast">
                             <h4></h4>
-                            <p class="forecast-daily-temperature"></p>
+                            <p class="forecast-daily-temperature stat"></p>
                         </article>
                         <article class="forecast">
                             <h4></h4>
-                            <p class="forecast-daily-temperature"></p>
+                            <p class="forecast-daily-temperature stat"></p>
                         </article>
                         <article class="forecast">
                             <h4></h4>
-                            <p class="forecast-daily-temperature"></p>
+                            <p class="forecast-daily-temperature stat"></p>
                         </article>
                         <article class="forecast">
                             <h4></h4>
-                            <p class="forecast-daily-temperature"></p>
+                            <p class="forecast-daily-temperature stat"></p>
                         </article>
                         <article class="forecast">
                             <h4></h4>
-                            <p class="forecast-daily-temperature"></p>
+                            <p class="forecast-daily-temperature stat"></p>
                         </article>
                     </div>
                 </article>
@@ -106,9 +105,8 @@
         </div>
     </main>
     <footer>
-
+        <a href="https://junocollege.com/">Created at Juno College</a>
     </footer>
-
     <script src="./script.js"></script>
 </body>
 
