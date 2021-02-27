@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friendly Weather App</title>
-    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <!--import weather icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css" integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.min.css" integrity="sha512-Ydyj0LLrJGMf7yUSU+QxZE4Pu/jVIutpdTOAozUrzZMslo+vLMX64rghLxEs+AKpN+GmnVNgXoeLlMwSqtyjPw==" crossorigin="anonymous" />
+    <!--import Google Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <!--connect external CSS stylesheet-->
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
-
 <body>
     <header>
         <h1><i class="wi wi-day-cloudy"></i> Friendly Weather App</h1>
-        
     </header>
     <main>
         <div class="wrapper">
@@ -35,7 +35,7 @@
                             <i class="wi wi-fahrenheit"></i>
                         </label>
                     </form>
-                </div>
+                </div><!--/.unit-select-->
                 <article>
                     <h2 class="weather-title"></h2>
                     <div class="weather-container">
@@ -52,12 +52,10 @@
                                 <p>High/Low</p>
                                 <p class="stat" id="current-daily-temperature"></p>
                             </div>
-                        </div>
-
+                        </div><!--/.weather-stats-->
                         <div class="description">
                             <p class="stat" id="description"></p>
                         </div>
-
                         <div class="other-stats">
                             <div>
                                 <p id="current-date"></p>
@@ -71,10 +69,10 @@
                                 <p>Humidity</p>
                                 <p class="stat" id="humidity"></p>
                             </div>
-                        </div>
-                    </div>
+                        </div><!--/.other-stats-->
+                    </div><!--/.weather-container-->
                 </article>
-            </section>
+            </section><!--/.current-weather-->
             <section class="five-day-forecast">
                 <article>
                     <h3>5-Day Forecast</h3>
@@ -99,15 +97,14 @@
                             <h4></h4>
                             <p class="forecast-daily-temperature stat"></p>
                         </article>
-                    </div>
+                    </div><!--/.forecast-container-->
                 </article>
-            </section>
-        </div>
+            </section><!--/.five-day-forecast-->
+        </div><!--/.wrapper-->
     </main>
     <footer>
-        <a href="https://junocollege.com/">Created at Juno College</a>
+        <a href="https://junocollege.com/">Created at <span>Juno College</span></a>
     </footer>
     <script src="./script.js"></script>
 </body>
-
 </html>

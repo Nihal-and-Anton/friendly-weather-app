@@ -1,16 +1,10 @@
 const weatherApp = {};
-// save API's url and keys into variables
-// incapsulate variables into a function "getVariables"
-// get user location using FreeGeoIP
-// get weather for that location using OpenWeather
 
 weatherApp.getVariables = () => {
     weatherApp.geoUrl = "https://freegeoip.app/json/";
     weatherApp.weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
     weatherApp.onecallUrl = "https://api.openweathermap.org/data/2.5/onecall";
     weatherApp.apiKey = "f5daff7dc1836c7459dbcc4ca6644537";
-    weatherApp.iconUrl = "https://openweathermap.org/img/wn/"
-    //http://openweathermap.org/img/wn/10d@2x.png
     // second API key 'b14a81d4d1d1f082145ed553c87d056f'
 };
 
@@ -31,16 +25,13 @@ weatherApp.getLocation = () => {
 weatherApp.checkUnit = () => {
     let checked = document.querySelector('input:checked');
     weatherApp.unit = checked.value;
-
     const selector = document.querySelector('form');
     selector.addEventListener('change', () => {
         checked = document.querySelector('input:checked');
         weatherApp.unit = checked.value;
         weatherApp.getLocation();
     })
-
-
-}
+};
 
 weatherApp.getWeather = userCoordinates => {
     const url = new URL(weatherApp.weatherUrl);
@@ -56,7 +47,6 @@ weatherApp.getWeather = userCoordinates => {
         .then(jsonResponse => {
             weatherApp.displayWeather(jsonResponse);
             weatherApp.setBackground(jsonResponse.weather);
-            console.log(jsonResponse)
         })
         .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
 };
@@ -64,8 +54,8 @@ weatherApp.getWeather = userCoordinates => {
 weatherApp.setBackground = weatherArray => {
     const bg = weatherArray[0].icon;
     const body = document.querySelector('body');
-    body.style.backgroundImage = `url("./assets/backgrounds/03d.jpg")`
-}
+    body.style.backgroundImage = `url("./assets/backgrounds/${bg}.jpg")`;
+};
 
 weatherApp.displayWeather = weatherObject => {
     const allIcons = document.querySelectorAll('i:not(h1 i, form i)');
@@ -87,21 +77,15 @@ weatherApp.displayWeather = weatherObject => {
     weatherIcon.classList.add('wi', `wi-owm-${weatherObject.weather[0].id}`);
     document.querySelector('.description').appendChild(weatherIcon);
     
-    
-    
     const windSpeed = document.getElementById('wind-speed');
     const windMultiplier = (weatherApp.unit === 'metric' ? 3.6 : 1);
     windSpeed.textContent = ` ${Math.round(weatherObject.wind.speed * windMultiplier)} ${weatherApp.unit === 'metric' ? 'km/hr' : 'mph'}`;
-    
     const windIcon = document.createElement('i');
     windIcon.classList.add('wi', 'wi-wind', `towards-${weatherObject.wind.deg}-deg`);
     windSpeed.prepend(windIcon);
     
     document.getElementById('humidity')
-    .textContent = `${weatherObject.main.humidity}%`
-    
-    
-    
+    .textContent = `${weatherObject.main.humidity}%`;
 };
 
 weatherApp.getForecast = userCoordinates => {
@@ -117,11 +101,10 @@ weatherApp.getForecast = userCoordinates => {
         .then(response => response.json())
         .then(jsonResponse => weatherApp.showForecast(jsonResponse))
         .catch(errors => alert('Data cannot be loaded at the moment. Try disabling your ad-blocker and refreshing the page.'));
-}
+};
 
 weatherApp.showForecast = forecastData => {
     const currentDate = new Date(forecastData.current.dt * 1000);
-    console.log(forecastData)
 
     const currentDateElement = document.querySelector('#current-date');
     currentDateElement.textContent = `${currentDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: '2-digit'})}`;
@@ -148,29 +131,28 @@ weatherApp.showForecast = forecastData => {
             month: 'short',
             day: '2-digit'
         });
+
         const forecastTemperatureElement = document.querySelectorAll('.forecast-daily-temperature');
         const forecastHighTemperature = Math.round(forecastData.daily[i + 1].temp.max);
         const forecastLowTemperature = Math.round(forecastData.daily[i + 1].temp.min);
         forecastTemperatureElement[i].textContent = `${forecastHighTemperature}° / ${forecastLowTemperature}°`;
+
         const forecastIcon = document.createElement('i');
         forecastIcon.classList.add('wi', `wi-owm-${ forecastData.daily[i + 1].weather[0].id}`);
         forecastHeadings[i].insertAdjacentElement('afterend', forecastIcon);
-        
-        
-        
+    
         const forecastDescription = document.createElement('span');
         forecastDescription.textContent = forecastData.daily[i + 1].weather[0].description;
         forecastDescription.classList.add('sr-only', 'forecast-description');
         forecastIcon.insertAdjacentElement('afterend', forecastDescription);
     }
-
     weatherApp.makeIconsAriaHidden();
-}
+};
 
 weatherApp.makeIconsAriaHidden = () => {
     const icons = document.querySelectorAll('i');
     icons.forEach(icon => icon.setAttribute('aria-hidden', true));
-}
+};
 
 weatherApp.init = () => {
     weatherApp.getVariables();

@@ -27,24 +27,27 @@
         justify-content: space-between;
     }
     
+    .description {
+        margin: 0 30px;   
+        text-align: center;
+
+        p {
+            text-transform: capitalize;
+        }
+
+        i {
+            font-size: 7rem;
+        }
+    }
+
     .other-stats {
        p:first-child {
            text-align: left;
        }
+
        p:last-child {
            text-align: right;
        }
-    }
-
-    .description {
-        margin: 0 30px;   
-        text-align: center;
-        p {
-            text-transform: capitalize;
-        }
-        i {
-            font-size: 7rem;
-        }
     }
 }
 
@@ -55,20 +58,22 @@
     .forecast {
         width: calc(20% - (60px / 5));
         text-align: center;
+
         i {
             font-size: 4rem;
-        }
-        .wi-celsius {
-            font-size: 2rem;
         }
     }
 }
 
 .stat {
         font-weight: 600;
-    }
+}
 
 footer {
     margin-top: 10px;
     text-align: center;
+
+    span {
+        color: rgb(234, 89, 62);
+    }
 }

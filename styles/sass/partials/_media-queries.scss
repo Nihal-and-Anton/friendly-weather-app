@@ -27,6 +27,7 @@
     
     .forecast-container {
         flex-wrap: wrap;
+
         .forecast {
             width: calc(50% - (15px / 2));
         }
@@ -45,14 +46,9 @@
         flex-direction: column-reverse;
 
         .weather-stats {
-            width: 100%;
             flex-direction: row;
-            
-            div {
-                flex-direction: column;
-                flex-basis: auto;
-                flex-grow: 1;
 
+            div {
                 p {
                     text-align: center;
                 }
@@ -68,19 +64,25 @@
         }
 
         .other-stats {
-            width: 100%;
             display: flex;
             justify-content: space-between;
+
+            div {
+                p:first-child,
+                p:last-child {
+                    text-align: center;
+                }
+            }
+        }
+
+        .weather-stats,
+        .other-stats {
+            width: 100%;
 
             div {
                 flex-direction: column;
                 flex-basis: auto;
                 flex-grow: 1;
-
-                p:first-child,
-                p:last-child {
-                    text-align: center;
-                }
             }
         }
     }
