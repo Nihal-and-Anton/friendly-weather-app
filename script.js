@@ -129,10 +129,6 @@ weatherApp.showForecast = forecastData => {
 
     const daysOfForecast = document.querySelectorAll('.forecast');
 
-    document.querySelectorAll('.forecast-description').forEach(description => {
-        description.remove();
-    });
-
     for (let i = 0; i < daysOfForecast.length; i++) {
         const forecastHeadings = document.querySelectorAll('h4');
         forecastHeadings[i].textContent = new Date(forecastData.daily[i + 1].dt * 1000).toLocaleString('en-US', {
